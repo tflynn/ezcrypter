@@ -40,6 +40,7 @@ Rake::TestTask.new(:default) do |t|
   t.libs << "spec"
   t.pattern = 'spec/**/*_spec.rb'
   t.verbose = true
+  t.options = '-c --format specdoc'
 end
 
 task :install => [:package] do
