@@ -25,17 +25,21 @@ module EzCrypter
     # If the specified worker doesn't exist then EzCrypter::DefaultWorker
     # is returned.
     def worker(key = :default, options = {})
+      # Needs poor man's camelcase
+      if key.is_a?(Symbol)
+        key = key.to_s
+        key[0,1] = key[0,1].upcase
+      end
       worker = @crypt_workers_cache[key.to_sym]
       if worker.nil?
-        # Needs poor man's camelcase
-        worker_klass = key.to_s.capitalize + "Worker"
+        worker_klass = key + "Worker"
         if EzCrypter.const_defined?(worker_klass)
-          # cheat
-          #worker = "EzCrypter::#{worker_klass}".constantize.new(options)
           worker = nil
           worker = eval("worker = EzCrypter::#{worker_klass}.new(options)")
+          # puts "worker class inst #{worker.class.name}"
         else
           worker = EzCrypter::DefaultWorker.new(options)
+          # puts "worker class inst defaulted to #{worker.class.name}"
         end
         @crypt_workers_cache[key.to_sym] = worker
       end

@@ -5,7 +5,7 @@ module EzCrypter # :nodoc:
   class DefaultWorker
     
     def initialize(options = {})
-      options = {:secret_key =>  String.randomize(40), :salt => '_salt_and_pepper'}.merge(options)
+      options = {:secret_key =>  String.randomize(40), :salt => '_salt_and_pepper_'}.merge(options)
       @aes_key = EzCrypto::Key.with_password(options[:secret_key], options[:salt])
     end
     
