@@ -8,6 +8,10 @@ describe EzCrypter do
     en = EzCrypter::Keeper.instance.worker.ez_encrypt("hello world")
     en.should_not == "hello world"
     EzCrypter::Keeper.instance.worker.ez_decrypt(en).should == "hello world"
+    en64 = EzCrypter::Keeper.instance.worker.ez_encrypt64("hello world")
+    en64.should_not == "hello world"
+    EzCrypter::Keeper.instance.worker.ez_decrypt64(en64).should == "hello world"
+    
   end
   
   # it "should be able to encrypt/decrypt using other worker" do

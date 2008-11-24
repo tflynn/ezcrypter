@@ -20,6 +20,18 @@ module EzCrypter # :nodoc:
     def ez_decrypt(x)
       @aes_key.decrypt(x)
     end
+
+    # Encrypts a string using the EzCrypto library and the secret key found in
+    # configatron.default_secret_key
+    def ez_encrypt64(x)
+      @aes_key.encrypt64(x)
+    end
+    
+    # Decrypts a string using the EzCrypto library and the secret key found in
+    # configatron.default_secret_key
+    def ez_decrypt64(x)
+      @aes_key.decrypt64(x)
+    end
     
   end # DefaultWorker
 end # Crypt

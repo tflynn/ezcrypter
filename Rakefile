@@ -5,7 +5,7 @@ require 'rake/testtask'
 require 'find'
 
 name = 'ezcrypter'
-version = '0.1'
+version = '0.2'
 
 @gem_spec = Gem::Specification.new do |s|
   s.name = name

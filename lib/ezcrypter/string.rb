@@ -24,5 +24,23 @@ class String
   def ez_decrypt(worker = :default)
     _ez_decrypt(self, worker)
   end
+
+  # Maps to Kernel _ez_encrypt64
+  # 
+  # Examples:
+  #   "Hello World".ez_encrypt
+  #   "Hello World".ez_encrypt(:my_crypt)
+  def ez_encrypt64(worker = :default)
+    _ez_encrypt64(self, worker)
+  end
+  
+  # Maps to Kernel _ez_decrypt64
+  # 
+  # Examples:
+  #   some_encrypted_string.ez_decrypt
+  #   some_encrypted_string.ez_ecrypt(:my_crypt)
+  def ez_decrypt64(worker = :default)
+    _ez_decrypt64(self, worker)
+  end
   
 end
