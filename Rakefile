@@ -25,8 +25,6 @@ version = '0.2'
   
   s.extra_rdoc_files = ["README"]
   s.has_rdoc = true
-  s.required_ruby_version = ">= 1.8.6"
-  #s.rubyforge_project = "magrathea"
 end
 
 Rake::GemPackageTask.new(@gem_spec) do |pkg|
